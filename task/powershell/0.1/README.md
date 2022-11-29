@@ -5,7 +5,7 @@ The following task helps you to run powershell commands.
 ### Install powershell
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/powershell/0.1/powershell.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/powershell/0.1/raw
 ```
 
 ## Parameters
@@ -13,6 +13,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/po
 - **tag**: the tag used for the `mcr.microsoft.com/powershell` image (_default_: `latest`)
 - **command**: Powershell command
 - **verbose**: Verbosity level for command (_default_: `SilentlyContinue`)
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 
@@ -28,7 +32,7 @@ spec:
     name: powershell
   params:
     - name: command
-      value: "Write-Output 'Hello World'; `$random = get-random -Minimum 0 -Maximum 100; write-output 'Created this number for you $random'"
+      value: "Write-Output 'Hello World'; `$random = get-random -Minimum 0 -Maximum 100; write-output 'Created this number for you' `$random"
     - name: tag
       value: latest
     - name: verbose

@@ -7,7 +7,7 @@ Openshift-client-kubecfg runs commands against any cluster that is provided to i
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/openshift-client-kubecfg/0.1/openshift-client-kubecfg.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/openshift-client-kubecfg/0.1/raw
 ```
 
 
@@ -31,6 +31,10 @@ You can do the former via `oc` and running the following command, replacing `<na
 ```
 oc policy add-role-to-user edit -z default -n <namespace>
 ```
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

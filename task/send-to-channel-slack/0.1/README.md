@@ -13,7 +13,7 @@ The app must join the channel before the message posted by this task run. (invit
 ## Install the Task and create a secret
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/send-to-channel-slack/0.1/send-to-channel-slack.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/send-to-channel-slack/0.1/raw
 ```
 
 Create a secret that has the OAuth token of the bot app.
@@ -42,6 +42,11 @@ kubectl apply -f token-secret.yaml
 * **channel**: [channel id](https://api.slack.com/messaging/retrieving#finding_conversation) or channel name where the message is posted
 
 * **message**: Plain text message to be posted in the slack channel
+
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

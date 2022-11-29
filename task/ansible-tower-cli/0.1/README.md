@@ -7,7 +7,7 @@
 
 Install `tower-cli` task:
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ansible-tower-cli/0.1/ansible-tower-cli-task.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/ansible-tower-cli/0.1/raw
 ```
 
 ## Parameters
@@ -52,6 +52,10 @@ You can do the former via `oc` and running the following command, replacing `<na
 ```
 oc policy add-role-to-user edit -z default -n <namespace>
 ```
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

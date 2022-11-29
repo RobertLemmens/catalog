@@ -39,7 +39,7 @@ kubectl --namespace default create secret generic docker-registry-config --from-
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/makisu/0.1/makisu.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/makisu/0.1/raw
 ```
 
 ## Parameters
@@ -60,6 +60,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ma
 ### Outputs
 
 * **image**: An `image`-type `PipelineResource` specify the image that should be built.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

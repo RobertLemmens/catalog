@@ -13,7 +13,7 @@ The task provides linting based on [pylint](https://pypi.org/project/pylint/) fo
 ### Install pylint
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/pylint/0.1/pylint.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/pylint/0.1/raw
 ```
 
 ## Parameters
@@ -23,6 +23,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/py
 * **MODULE_PATH**: The path to the module which should be analysed by pylint (_default_: `.`)
 * **ARGS**: The additional arguments to be used with pylint
 * **REQUIREMENTS_FILE**: The name of the requirements file inside the source location (_default_: `requirements.txt`)
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, `linux/arm64` and `linux/ppc64le` platforms.
 
 ## Usage
 

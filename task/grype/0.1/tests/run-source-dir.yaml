@@ -1,0 +1,53 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: pipeline-grype-test-source-dir
+spec:
+  workspaces:
+    - name: pipeline-pvc
+      optional: false
+  params:
+    - name: ARGS
+      type: array
+      description: The Arguments to be passed to Grype command for config image.
+  description: Test Pipeline for Grype
+  tasks:
+    - name: fetch-repository
+      taskRef:
+        name: git-clone
+      workspaces:
+      - name: output
+        workspace: pipeline-pvc
+      params:
+      - name: url
+        value: https://github.com/kelseyhightower/nocode
+    - name: grype-scan-local-image
+      taskRef:
+        name: grype
+        kind: Task
+      runAfter:
+        - fetch-repository
+      params:
+        - name: ARGS
+          value: ["$(params.ARGS[*])"]
+      workspaces:
+        - name: source-dir
+          workspace: pipeline-pvc
+---
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: pipelinerun-grype-test-source-dir-
+spec:
+  params:
+    - name: ARGS
+      value:
+        - dir:.
+  pipelineRef:
+    name: pipeline-grype-test-source-dir
+  timeout: 1h0m0s
+  workspaces:
+    - name: pipeline-pvc
+      persistentVolumeClaim:
+        claimName: pvc-grype-test

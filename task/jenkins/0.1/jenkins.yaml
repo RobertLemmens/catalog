@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Automation
     tekton.dev/tags: jenkins, build
     tekton.dev/displayName: "jenkins operation"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     The following task can be used to interact with the the Jenkins REST API.

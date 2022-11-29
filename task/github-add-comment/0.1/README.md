@@ -6,7 +6,7 @@ issue.
 ### Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-add-comment/0.1/github-add-comment.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-add-comment/0.1/raw
 ```
 
 ### Parameters
@@ -30,6 +30,10 @@ kubectl create secret generic github --from-literal token="MY_TOKEN"
 Check [this](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) to get personal access token for `Github`.
 
 See GitHub's documentation on [Understanding scopes for OAuth Apps](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) to figure out what scopes you need to give to this token to add comment to an issue or a pull request.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

@@ -5,7 +5,7 @@ This task syncs (deploys) an [Argo CD](https://argoproj.github.io/argo-cd/) appl
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/argocd-task-sync-and-wait/0.1/argocd-task-sync-and-wait.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/argocd-task-sync-and-wait/0.1/raw
 ```
 
 ## Parameters
@@ -15,6 +15,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ar
 * **revision:** The revision to sync to (_default:_ `HEAD`)
 
 * **flags:** Flags to append after commands, e.g. `--insecure` (_default:_ `--`)
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

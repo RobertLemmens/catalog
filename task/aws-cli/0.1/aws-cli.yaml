@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: CLI
     tekton.dev/tags: cli
     tekton.dev/displayName: "aws cli"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This task performs operations on Amazon Web Services resources using aws.

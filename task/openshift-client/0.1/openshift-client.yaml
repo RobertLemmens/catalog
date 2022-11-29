@@ -6,9 +6,11 @@ metadata:
   labels:
     app.kubernetes.io/version: "0.1"
   annotations:
+    tekton.dev/categories: Openshift
     tekton.dev/pipelines.minVersion: "0.12.1"
     tekton.dev/tags: cli
     tekton.dev/displayName: "openshift client"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This task runs commands against the cluster where the task run is

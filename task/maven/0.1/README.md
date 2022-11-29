@@ -5,7 +5,7 @@ This Task can be used to run a Maven goals on a simple maven project.
 ## Install the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/maven/0.1/maven.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/maven/0.1/raw
 ```
 
 ## Parameters
@@ -36,6 +36,10 @@ spec:
     requests:
       storage: 500Mi
 ```
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

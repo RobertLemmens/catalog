@@ -5,7 +5,7 @@ This Task deploys an application to a Google Kubernetes Engine cluster using [`g
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gke-deploy/0.1/gke-deploy.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/gke-deploy/0.1/raw
 ```
 
 ## Parameters
@@ -20,6 +20,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gk
 ## Workspaces
 
 * **source**: The Git source repository that contains your application's Kubernetes configs.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

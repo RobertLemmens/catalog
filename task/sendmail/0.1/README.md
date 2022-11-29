@@ -5,7 +5,7 @@ This task sends a simple email to receivers via SMTP server
 ## Install the Task and create a secret
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/sendmail/0.1/sendmail.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/sendmail/0.1/raw
 ```
 
 Create a secret that has the SMTP server information
@@ -50,6 +50,10 @@ kubectl apply -f server-secret.yaml
 * **sender**: Email sender email address
 
 * **recipients**: Email recipients email addresses (space delimited)
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, `linux/arm64` and `linux/ppc64le` platforms.
 
 ## Usage
 

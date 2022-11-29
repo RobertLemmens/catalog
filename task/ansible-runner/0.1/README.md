@@ -2,12 +2,15 @@
 
 Ansible Runner Task allows running the Ansible Playbooks using the [ansible-runner](https://ansible-runner.readthedocs.io/) tool.
 
+
+**NOTE**: This Task is now deprecated and will be removed soon as the image is removed from the dockerhub by the authors. Please use the version [0.2](../0.2) instead.
+
 ## Creating the Task
 
 Create the Task and other resources:
 
 ```shell
-kubectl apply --filename https://raw.githubusercontent.com/tektoncd/catalog/main/task/ansible-runner/0.1/ansible-runner.yaml
+kubectl apply --filename https://api.hub.tekton.dev/v1/resource/tekton/task/ansible-runner/0.1/raw
 ```
 
 Verify the created tasks:
@@ -26,6 +29,10 @@ tkn task ls
 
 * **runner-dir**: A [workspace](https://github.com/tektoncd/pipeline/blob/main/docs/workspaces.md) to hold the `private_data_dir` as described in https://ansible-runner.readthedocs.io/en/latest/intro.html#runner-input-directory-hierarchy[Runner Directory]
 
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
+
 ## Usage
 
 The TaskRun uses the repository https://github.com/kameshsampath/tektoncd-ansible-runner-example, that houses some example playbooks.
@@ -40,7 +47,7 @@ All the examples will be run in namespace called `funstuff`. Create the namespac
 ### Create the PVC and clone example sources
 
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/git-clone/0.1/git-clone.yaml \
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/git-clone/0.1/raw \
   -f  https://raw.githubusercontent.com/tektoncd/catalog/main/task/ansible-runner/0.1/support/playbooks-pvc.yaml
 ```
 
@@ -71,7 +78,7 @@ List the pods of `kube-system` namespace:
  tkn task start ansible-runner \
    --serviceaccount ansible-deployer-account \
    --param=project-dir=kubernetes \
-   --param=args='-p list-pods.yml' \
+   --param=args=-p,list-pods.yml \
    --workspace=name=runner-dir,claimName=ansible-playbooks \
    --showlog
 ```
@@ -84,7 +91,7 @@ Create a deployment in  `funstuff` namespace:
  tkn task start ansible-runner \
    --serviceaccount ansible-deployer-account \
    --param=project-dir=kubernetes \
-   --param=args='-p create-deployment.yml' \
+   --param=args=-p,create-deployment.yml \
    --workspace=name=runner-dir,claimName=ansible-playbooks \
    --showlog
 ```
@@ -97,7 +104,7 @@ Create a service in `funstuff` namespace:
  tkn task start ansible-runner \
    --serviceaccount ansible-deployer-account \
    --param=project-dir=kubernetes \
-   --param=args='-p create-service.yml' \
+   --param=args=-p,create-service.yml \
    --workspace=name=runner-dir,claimName=ansible-playbooks \
    --showlog
 ```

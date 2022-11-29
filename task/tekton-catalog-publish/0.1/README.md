@@ -11,7 +11,7 @@ in `tkn` starting with version v0.18.0.
 ## Install the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/tekton-catalog-publish/0.1/tekton-catalog-publush.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/tekton-catalog-publish/0.1/raw
 ```
 
 ## Parameters
@@ -29,6 +29,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/te
 - **dockerconfig**: An [optional workspace](https://github.com/tektoncd/pipeline/blob/main/docs/workspaces.md#using-workspaces-in-tasks)
   that allows providing a `.docker/config.json` file for tkn to access the container registry. The file should be placed at
   the root of the Workspace with name `config.json`.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, and `linux/ppc64le` platforms.
 
 ## Usage
 

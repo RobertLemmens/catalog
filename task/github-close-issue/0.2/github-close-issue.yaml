@@ -6,9 +6,11 @@ metadata:
   labels:
     app.kubernetes.io/version: "0.2"
   annotations:
+    tekton.dev/categories: Git
     tekton.dev/pipelines.minVersion: "0.12.1"
     tekton.dev/tags: github
     tekton.dev/displayName: "close github issue"
+    tekton.dev/platforms: "linux/amd64,linux/s390x,linux/ppc64le"
 spec:
   description: >-
     This Task will close a pull request or an issue.
@@ -53,7 +55,7 @@ spec:
               name: $(params.GITHUB_TOKEN_SECRET_NAME)
               key: $(params.GITHUB_TOKEN_SECRET_KEY)
 
-      image: registry.access.redhat.com/ubi8/ubi:latest
+      image: registry.access.redhat.com/ubi8/ubi:8.2
       script: |
         #!/usr/libexec/platform-python
         import json

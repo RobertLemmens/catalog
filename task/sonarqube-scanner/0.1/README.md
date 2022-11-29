@@ -9,7 +9,7 @@ For creating your own `sonar-project.properties` please follow the guide [here](
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/sonarqube-scanner/0.1/sonarqube-scanner.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/sonarqube-scanner/0.1/raw
 ```
 
 ## Pre-requisite
@@ -53,6 +53,10 @@ https://raw.githubusercontent.com/tektoncd/catalog/v1beta1/git/git-clone.yaml
    ```
 
 Sample IPAddress we will obtain using above command is like http://172.17.0.2:9000
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

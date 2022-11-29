@@ -5,7 +5,7 @@ This Task is a Golang task to validate Go projects.
 ## Install the task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/golangci-lint/0.1/golangci-lint.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/golangci-lint/0.1/raw
 
 ```
 
@@ -22,6 +22,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/go
 ### Workspaces
 
 * **source**: A [Workspace](https://github.com/tektoncd/pipeline/blob/main/docs/workspaces.md) containing the source to build.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

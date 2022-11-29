@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Git
     tekton.dev/tags: github
     tekton.dev/displayName: "github app token"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     Retrive a user token from a GitHub application

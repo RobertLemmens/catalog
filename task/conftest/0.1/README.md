@@ -8,8 +8,12 @@ your Tekton pipelines. Conftest is a tool for testing configuration files using 
 In order to use Conftest with Tekton you need to first install the task.
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/conftest/0.1/conftest.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/conftest/0.1/raw
 ```
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

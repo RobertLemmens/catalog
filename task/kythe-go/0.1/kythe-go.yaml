@@ -6,8 +6,11 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Build Tools
     tekton.dev/tags: annotations
     tekton.dev/displayName: "kythe go"
+    tekton.dev/platforms: "linux/amd64"
+    tekton.dev/deprecated: "true"
 spec:
   description: >-
     This task generates annotations for source code.

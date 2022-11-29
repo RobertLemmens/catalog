@@ -5,7 +5,7 @@ Upload your code coverage to [codecov.io](https://codecov.io)
 ## Installing the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/codecov/0.1/codecov.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/codecov/0.1/raw
 ```
 
 ## Parameters
@@ -13,6 +13,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/co
 - **codecov-token-secret**: Name of the secret holding the codecov token. (_Default_: `codecov-token`)
 - **codecov-token-secret-key**: Name of the secret key holding the codecov token. (_Default_: `token`)
 - **args**: Extra arguments to be passed to the codecov script, more details [here](https://docs.codecov.io/docs/about-the-codecov-bash-uploader#arguments) (_Default_: [`-Z`])
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

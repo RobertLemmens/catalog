@@ -6,14 +6,14 @@ This Task performs operations on Knative resources (services, revisions, routes)
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kn/0.1/kn.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/kn/0.1/raw
 ```
 
 ## Parameters
 
 * **kn-image**: `kn` CLI container image to run this task.
 
-  _default_: `gcr.io/knative-releases/knative.dev/client/cmd/kn:v0.10.0`
+  _default_: `gcr.io/knative-releases/knative.dev/client/cmd/kn:latest`
 
   You can use nightly build of the `kn` CLI using
   `gcr.io/knative-nightly/knative.dev/client/cmd/kn`.
@@ -30,6 +30,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kn
 
   User provides the `image`-type resource to kn CLI in parameter `ARGS` as an
   element of the array, for e.g. `"--image=$(inputs.resources.image.url)"`.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, `linux/arm64` and `linux/ppc64le` platforms.
 
 ## Usage
 

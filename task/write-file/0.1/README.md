@@ -7,7 +7,7 @@ file. It can also set specific permissions on the file.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/write-file/0.1/write-file.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/write-file/0.1/raw
 ```
 
 ## Parameters
@@ -15,6 +15,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/wr
 - **path**: Relative path to create within the workspace. Directories will be created as necessary. 
 - **mode**: chmod-style mode string to apply to the file. Note that mode will not be applied to created directories.
 - **contents**: Contents of the file to create. Note that octal numbers need quoting in YAML.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, and `linux/ppc64le` platforms.
 
 ## Usage
 

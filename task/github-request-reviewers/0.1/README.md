@@ -9,7 +9,7 @@ The `github-request-reviewers` task lets one request reviewers on a pull request
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-request-reviewers/0.1/github-request-reviewers.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-request-reviewers/0.1/raw
 ```
 
 ## Secrets
@@ -41,6 +41,10 @@ for more details.
 ## Workspaces
 
 - **github**: The workspace that contains the github token
+
+### Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

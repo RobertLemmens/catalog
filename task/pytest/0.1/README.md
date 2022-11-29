@@ -13,7 +13,7 @@ The task provides test execution based on [pytest](https://pypi.org/project/pyte
 ### Install pytest
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/pytest/0.1/pytest.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/pytest/0.1/raw
 ```
 
 ## Parameters
@@ -21,7 +21,11 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/py
 * **PYTHON**: The used Python version, more precisely the tag for the Python image (_default_: `latest`)
 * **ARGS**: The additional arguments to be used with pytest
 * **SOURCE_PATH**: The path to the source code (_default_: `.`)
-* **REQUIREMENTS_FILE**: The name of the requirements file inside the source location (_default_: `requirements.txt`)
+* **REQUIREMENTS_FILE**: The name of the requirements file inside the source location, with fallback to the requirements file in the root location (_default_: `requirements.txt`)
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, and `linux/ppc64le` platforms.
 
 ## Usage
 

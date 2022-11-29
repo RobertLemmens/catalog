@@ -174,49 +174,22 @@ maintain it in-line.  Because you have already avoided interpolation
 in the script, there is no real need for the script to be in-lined
 into the Task.
 
-Use a ConfigMap for your script, and mount the configmap in the task.
-Use a single _command:_ that executes your script (optionally with
-environment variables and with parameters):
+As with all configuration and code that you write as part of software
+development, it is important to treat the Tasks and embedded scripts
+with the same care you use for your other code.
 
+Scripts should be maintained such that they can be versioned and tested;
+therefore as a script grows beyond a few simple lines, you should store
+the script in version control, and use tests and code review to maintain
+it over time. At this point you may want to consider switching from a
+language which does not naturally support tasking, such as bash, to one
+that does, such as Python.
 
-```
-  volumes:
-  - name: scripts
-    configMap:
-      name: my-task-scripts
-      defaultMode: 0755
-  steps:
-  - name: foo
-    image: myimage
-    volumeMounts:
-    - name: scripts
-      mountPath: /mnt/scripts
-    volume
-    command:
-    - /mnt/scripts/my-command.sh
-```
-
-This allows you to create and update your configmap from a real
-script.  An external script-file allows you to edit it stand-alone as
-a proper script file, rather than in-lined into a tekton task yaml
-file.  This gives you better completion, syntax checking, and many
-other benefits.  You can even run the script locally.
-
-
-```
-#!/bin/bash
-# my-command.sh
-echo "${PARAM_ONE-Hello world}"
-```
-
-To create the configmap:
-
-```
-kubectl create configmap my-task-scripts --from-file=my-command.sh
-```
-
-For bonus points, use a kustomize generator to create your task; this
-allows you simple "kubectl apply -k".
+At this point, the best option we have to offer is to build and publish
+an image which contains your tested, versioned script, and use that image
+from within your Task. This may seem like a big ask, but another way of
+looking at it is that your script has graduated from just being a script
+to being a tool.
 
 ## Test and verify your task code
 
@@ -315,3 +288,20 @@ it already exists, nothing happens.
 
 This technique can be used to "short circuit" work when it is not
 necessary to _re-run_.
+
+## Provide "tekton.dev/platforms" annotation
+
+`tekton.dev/platforms` annotation indicates on which platforms (for
+instance, "linux/amd64,linux/arm64" or "windows/amd64") resource can
+be run.
+The most reliable option to verify the platform list is to run the
+e2e tests provided with the resource. Minimal requirement is to use
+the container image, which has support for corresponding platform.
+
+Add `Platforms` section into the README.md of the corresponding resource.
+If running of the resource on specific platform requires to use another
+image or do other customization, it should be also mentioned in the section.
+
+If you don't know, which platforms to specify, good start is to use
+"linux/amd64", as it is most popular platform and most likely the tests,
+you've done, were on top of it.

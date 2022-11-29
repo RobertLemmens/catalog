@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Code Quality
     tekton.dev/tags: Kubernetes, Misconfiguration
     tekton.dev/displayName: "Kube-Linter"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This task makes it possible to use kube-linter within Tekton Pipeline.
@@ -45,7 +47,7 @@ spec:
       default: ""
     - name: output_format
       type: string
-      description: format in which report will be generated. (json|sarif) (default:"json")
+      description: format in which report will be generated. (json|sarif|plain) (default:"json")
       default: json
     - name: args
       type: array

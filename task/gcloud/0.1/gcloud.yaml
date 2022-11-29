@@ -6,7 +6,9 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Cloud, CLI, Deployment, Storage
     tekton.dev/tags: gcp
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This task performs operations on Google Cloud Platform resources using gcloud.

@@ -10,7 +10,7 @@ Create a bot as decribed over [here](https://developer.webex.com/docs/bots).
 ## Install the Task and create a secret
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/send-to-webex-room/0.1/send-to-webex-room.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/send-to-webex-room/0.1/raw
 ```
 
 Create a secret that has the Webex API bot token.
@@ -37,6 +37,10 @@ kubectl apply -f webex-token-secret.yaml
 * **message**: Plain text message to be posted in the chat.
 
 * **room-id**: The ID of the room to send the message. See [official documentation](https://developer.webex.com/docs/api/v1/rooms/list-rooms) or [medium article](https://medium.com/@ObjectIsAdvantag/everything-you-always-wanted-to-know-about-the-spark-room-id-june16-550a0e65c59d) for help to find your ID.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

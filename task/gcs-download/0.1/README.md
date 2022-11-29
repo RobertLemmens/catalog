@@ -26,6 +26,9 @@ on a Workspace.
 * **typeDir**: Set this to "true" if the object you are copying is a directory. (_default_: "false")
 * **serviceAccountPath**: The path to the service account credential file in your credentials workspace. (_default_: "service\_account.json")
 
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 
@@ -79,7 +82,7 @@ spec:
       value: "true"
   - name: print-readme
     taskRef:
-      name: cat-readme
+      name: cat-file
     runAfter:
     - copy-files # required to ensure copy occurs before cat
     workspaces:

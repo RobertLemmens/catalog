@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.2"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Testing
     tekton.dev/tags: test
     tekton.dev/displayName: "golang test"
+    tekton.dev/platforms: "linux/amd64,linux/s390x,linux/ppc64le"
 spec:
   description: >-
     This Task is Golang task to test Go projects.
@@ -52,7 +54,7 @@ spec:
       if [ ! -e $GOPATH/src/$(params.package)/go.mod ];then
          SRC_PATH="$GOPATH/src/$(params.package)"
          mkdir -p $SRC_PATH
-         cp -R "$(workspaces.source.path)"/* $SRC_PATH
+         cp -R "$(workspaces.source.path)/$(params.context)"/* $SRC_PATH
          cd $SRC_PATH
       fi
       go test $(params.flags) $(params.packages)

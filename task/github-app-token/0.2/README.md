@@ -29,9 +29,12 @@ Refer [this](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-c
 ### Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-app-token/0.2/github-app-token.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-app-token/0.2/raw
 ```
 
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

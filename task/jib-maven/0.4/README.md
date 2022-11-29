@@ -7,7 +7,7 @@ Jib works with [Maven](https://github.com/GoogleContainerTools/jib/tree/master/j
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/jib-maven/0.4/jib-maven.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/jib-maven/0.4/raw
 ```
 
 ## Parameters
@@ -28,6 +28,12 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ji
 ## Results
 
 - **IMAGE_DIGEST**: Digest of the image just built.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
+
+For `linux/s390x` and `linux/ppc64le` platforms specify **MAVEN_IMAGE** parameter with `maven:3.6.3-adoptopenjdk-11` value in TaskRun or PipelineRun.
 
 ## Usage
 

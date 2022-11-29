@@ -25,7 +25,7 @@ informations about the CI statuses or a direct link to the full log.
 ### Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-set-status/0.2/github-set-status.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-set-status/0.2/raw
 ```
 
 ### Parameters
@@ -50,6 +50,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gi
   contains the GitHub token. Default value: `github`
 * **GITHUB_TOKEN_SECRET_KEY** \[optional\]: The key within the kubernetes secret that
   contains the GitHub token. Default value: `token`
+
+### Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage for Bearer authentication
 

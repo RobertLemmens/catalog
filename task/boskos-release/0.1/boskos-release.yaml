@@ -6,7 +6,9 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Cloud
     tekton.dev/tags: "boskos,test"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: |
     Release a project acquired using Boskos.

@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Deployment
     tekton.dev/tags: canary deployment, istio
     tekton.dev/displayName: "istio canary release"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This task can be used to perform deployment of an application

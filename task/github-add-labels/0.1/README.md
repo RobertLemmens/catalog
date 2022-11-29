@@ -6,7 +6,7 @@ This `task` can be used to add labels to a github `pull request` or an `issue`.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-add-labels/0.1/github-add-labels.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-add-labels/0.1/raw
 ```
 
 ## Parameters
@@ -25,6 +25,9 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gi
 
 Check [this](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) to get personal access token for `Github`.
 
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

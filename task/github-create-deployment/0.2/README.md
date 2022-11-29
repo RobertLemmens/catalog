@@ -7,7 +7,7 @@ See GitHub's deployment API on [Create a deployment](https://docs.github.com/res
 ### Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-create-deployment/0.2/github-create-deployment.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-create-deployment/0.2/raw
 ```
 
 ### Secrets
@@ -46,6 +46,10 @@ Token must have `repo_deployment` scope to create deployments. See GitHub's docu
 - **ID**: ID of the created deployment.
 - **URL**: URL of the created deployment.
 - **STATUSES_URL**: URL of the created deployment status.
+
+### Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

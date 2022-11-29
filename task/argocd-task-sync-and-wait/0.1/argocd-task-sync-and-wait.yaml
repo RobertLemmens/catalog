@@ -6,8 +6,11 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Deployment
     tekton.dev/tags: deploy
     tekton.dev/displayName: "argocd"
+    tekton.dev/platforms: "linux/amd64"
+    tekton.dev/deprecated: "true"
 spec:
   description: >-
     This task syncs (deploys) an Argo CD application and waits for it to be healthy.

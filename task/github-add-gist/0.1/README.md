@@ -6,7 +6,7 @@ and outputs the raw url as the result.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-add-gist/0.1/github-add-gist.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-add-gist/0.1/raw
 ```
 
 ## Secrets
@@ -38,6 +38,10 @@ See GitHub's documentation on [Understanding scopes for OAuth Apps](https://deve
 ## Workspaces
 
 - **input**: The input workspace which contains the file to be uploaded to gist.
+
+### Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

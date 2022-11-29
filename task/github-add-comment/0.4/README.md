@@ -11,7 +11,7 @@ issue.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-add-comment/0.4/github-add-comment.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-add-comment/0.4/raw
 ```
 
 ## Secrets
@@ -53,6 +53,10 @@ See GitHub's documentation on [Understanding scopes for OAuth Apps](https://deve
 ## Workspaces
 
 - **comment-file**: The optional workspace containing comment file to be posted.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

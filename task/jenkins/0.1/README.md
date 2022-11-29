@@ -7,7 +7,7 @@ More details on Remote Access API can be found [here](https://www.jenkins.io/doc
 ## Install the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/jenkins/0.1/jenkins.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/jenkins/0.1/raw
 ```
 
 ## Parameters
@@ -69,6 +69,10 @@ stringData:
   username: username
   apitoken: api-token
 ```
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

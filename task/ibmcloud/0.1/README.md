@@ -5,7 +5,7 @@ This task performs operations on IBM Cloud using the `ibmcloud`
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ibmcloud/0.1/ibmcloud.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/ibmcloud/0.1/raw
 ```
 
 ## Parameters
@@ -17,6 +17,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ib
   You can use a specific version of the `ibmcloud` CLI by specifying the `ibmcloud-image` param with the `ibmcom/ibm-cloud-developer-tools-amd64` image tagged with the specific version of the CLI you would like to use.  A full list of available version tags can be found under the [Full Tag Listing](https://hub.docker.com/r/ibmcom/ibm-cloud-developer-tools-amd64/tags) section of the `ibm-cloud-developer-tools-amd64` Docker Hub.
 
 * **ARGS**: The arguments to pass to `ibmcloud` CLI. This parameter is required to run this task.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

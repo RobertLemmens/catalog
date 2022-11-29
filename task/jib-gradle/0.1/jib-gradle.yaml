@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Image Build
     tekton.dev/tags: image-build
     tekton.dev/displayName: "jib gradle"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This Task builds Java/Kotlin/Groovy/Scala source into a container image using Google’s Jib tool.
@@ -61,6 +63,8 @@ spec:
     env:
     - name: HOME
       value: /workspace
+    - name: "DOCKER_CONFIG"
+      value: $(credentials.path)/.docker/
     volumeMounts:
     # empty volume required to make the Gradle home globally writable
     - name: empty-dir-volume

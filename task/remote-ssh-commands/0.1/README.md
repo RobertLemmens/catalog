@@ -5,7 +5,7 @@ This task can be used to run shell commands on remote machine and produce the re
 ## Install the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/remote-ssh-commands/0.1/remote-ssh-commands.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/remote-ssh-commands/0.1/raw
 ```
 
 ## Parameters
@@ -25,6 +25,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/re
   - **password**: User password to connect to host.
   - **fingerprint**: Fingerprint SHA256 of the host public key, default is to skip verification.
   - **ciphers**: The allowed cipher algorithms. If unspecified then a sensible.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

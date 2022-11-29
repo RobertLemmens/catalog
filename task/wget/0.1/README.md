@@ -6,7 +6,7 @@ This task uses wget to download files from the internet to a workspace  .
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/wget/0.1/wget.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/wget/0.1/raw
 ```
 
 ## Parameters
@@ -16,6 +16,11 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/wg
 * **url**: The url we want to download file from.  _default_: `""`
 * **filename**: The filename we want to change our file to.  _default_: `""`
 * ****: The wget docker image to be used. Defaults to `mwendler/wget`
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, and `linux/ppc64le` platforms.
+
 ## Usage
 
 ### Running the Task

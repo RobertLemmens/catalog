@@ -11,7 +11,7 @@ These tasks will install / upgrade a helm chart into your Kubernetes / OpenShift
 ### helm install / upgrade from repo
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/helm-upgrade-from-repo/0.1/helm-upgrade-from-repo.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/helm-upgrade-from-repo/0.1/raw
 ```
 
 #### Parameters
@@ -22,6 +22,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/he
 - **release_namespace**: The namespace in which the release is to be installed (*default: ""*)
 - **overwrite_values**: The values to be overwritten (*default: ""*)
 - **helm_version**: The helm version which should be used (*default: latest*)
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

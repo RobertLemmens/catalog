@@ -39,7 +39,7 @@ This `task` can be used to copy one or more than one images to-and fro various s
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/skopeo-copy/0.1/skopeo-copy.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/skopeo-copy/0.1/raw
 ```
 
 ## Parameters
@@ -59,6 +59,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/sk
 * `ConfigMap` to provide support for copying multiple images, this contains file `url.txt` which stores images registry URL's.
 
   [This](../0.1/samples/quay-secret.yaml) example can help to use secrets for providing credentials of image registries.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, `linux/arm64` and `linux/ppc64le` platforms.
 
 ## Usage
 

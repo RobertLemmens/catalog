@@ -15,7 +15,7 @@ makes it a perfect tool to be part of Tekton.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kaniko/0.2/kaniko.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/kaniko/0.2/raw
 ```
 
 ## Parameters
@@ -44,6 +44,10 @@ For an example on how to create such a `ServiceAccount` to push an image to
 DockerHub, see the
 [Authentication](https://github.com/tektoncd/pipeline/blob/master/docs/auth.md#basic-authentication-docker)
 documentation page.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

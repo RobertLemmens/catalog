@@ -7,7 +7,7 @@ See GitHub's deployment API on [Create a deployment status](https://docs.github.
 ### Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-create-deployment-status/0.1/github-create-deployment-status.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-create-deployment-status/0.1/raw
 ```
 
 ### Secrets
@@ -40,6 +40,10 @@ Token must have `repo_deployment` scope to create deployment status. See GitHub'
 - **GITHUB_TOKEN_SECRET_NAME**: The name of the Kubernetes Secret that
   contains the GitHub token. (_default:_ `github`).
 - **GITHUB_TOKEN_SECRET_KEY**: The key within the Kubernetes Secret that contains the GitHub token. (_default:_ `token`).
+
+### Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

@@ -5,7 +5,7 @@
 ## Installing the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/goreleaser/0.1/goreleaser.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/goreleaser/0.1/raw
 ```
 
 ## Parameters
@@ -18,6 +18,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/go
 ## Workspaces
 
 - **source**: The workspace containing the Go source code which needs to be released. The default `mountPath` is `/workspace/src/$(params.package)`
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

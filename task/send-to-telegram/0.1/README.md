@@ -10,7 +10,7 @@ Create a bot as decribed over [here](https://core.telegram.org/bots).
 ## Install the Task and create a secret
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/send-to-telegram/0.1/send-to-telegram.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/send-to-telegram/0.1/raw
 ```
 
 Create a secret that has bot token.
@@ -37,6 +37,10 @@ kubectl apply -f telegram-bot-token-secret.yaml
 * **message**: Plain text message to be posted in the chat.
 
 * **chat-id**: The ID of the chat to send the message towards. See telegram documentation to get the correct ID.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

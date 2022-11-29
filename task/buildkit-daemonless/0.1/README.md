@@ -13,7 +13,7 @@ This `buildkit-daemonless` Task is similar to [`buildkit`](../../buildkit) but d
 ## Install
 
 ```console
-$ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/buildkit-daemonless/0.1/buildkit-daemonless.yaml
+$ kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/buildkit-daemonless/0.1/raw
 task.tekton.dev/buildkit-daemonless created
 ```
 
@@ -32,3 +32,7 @@ task.tekton.dev/buildkit-daemonless created
 
 * **image**: An `image`-type `PipelineResource` specifying the image that should be built.
   Currently, generating [`resourceResult`](https://github.com/tektoncd/pipeline/blob/main/docs/resources.md#image-resource) is not supported. ([`buildkit#993`](https://github.com/moby/buildkit/issues/993))
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.

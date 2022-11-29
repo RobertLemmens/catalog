@@ -5,7 +5,7 @@ The following task is used to provide static analysis on YAML files mounted usin
 ## Installing the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/yaml-lint/0.1/yaml-lint.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/yaml-lint/0.1/raw
 ```
 
 ## Parameters
@@ -16,12 +16,16 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ya
 
 - **shared-workspace** : The workspace containing files on which we want to apply linter check. It can be a shared workspace with the `git-clone` task or a `ConfigMap` mounted containing some files.
 
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
+
 ## Usage
 
 1. Create the `git-clone` task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/git-clone/0.1/git-clone.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/git-clone/0.1/raw
 ```
 
 2. Create the PVC

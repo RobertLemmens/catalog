@@ -13,7 +13,7 @@ Task can also be used to upload multiple `assets` including `binaries` of the re
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/create-github-release/0.1/create-github-release.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/create-github-release/0.1/raw
 ```
 
 ## Parameters
@@ -38,6 +38,9 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/cr
 
 Check [this](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) to get personal access token for `Github`.
 
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

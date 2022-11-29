@@ -6,7 +6,7 @@ issue.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-close-issue/0.1/github-close-issue.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-close-issue/0.1/raw
 ```
 
 ## Secrets
@@ -29,6 +29,10 @@ See GitHub's documentation on [Understanding scopes for OAuth Apps](https://deve
 * **API_PATH_PREFIX:**: The GitHub Enterprise has a prefix for the API path. _e.g:_ `/api/v3`
 * **REQUEST_URL:**: The GitHub pull request or issue url, (_e.g:_
   `https://github.com/tektoncd/catalog/issues/46`)
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

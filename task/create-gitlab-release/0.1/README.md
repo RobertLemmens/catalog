@@ -13,7 +13,7 @@ Task can also be used to upload `assets` including `binaries` of the released ve
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/create-gitlab-release/0.1/create-gitlab-release.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/create-gitlab-release/0.1/raw
 ```
 
 ## Parameters
@@ -33,6 +33,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/cr
 * `Secret` to provide personal `access token` of the Gitlab.
 
 Check [this](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) to get personal access token for `Gitlab`.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

@@ -8,7 +8,7 @@ The following task can help you to deploy an application using the Blue-Green de
 ## Installing the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/blue-green-deploy/0.1/blue-green-deploy.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/blue-green-deploy/0.1/raw
 ```
 
 ## Installing the ClusterRoleBinding
@@ -27,6 +27,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/bl
 - **SERVICE_NAME**: The service name pointing to the existing deployment. (_Note_: The service name for the new deployment should be same)
 - **NEW_VERSION**: The version of the deployment to be deployed in the green/blue zone
 - **MANIFEST**: The deployment manifest URL file path provided in case the manifest is present on Github. (_Example_: "https://raw.githubusercontent.com/tektoncd/catalog/main/task/blue-green-deploy/0.1/samples/v1-deploy/blue-deployment.yaml")
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 # Usage
 

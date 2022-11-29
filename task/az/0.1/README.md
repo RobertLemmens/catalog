@@ -5,7 +5,7 @@ This task performs operations on Microsoft Azure resources using `az`.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/az/0.1/az.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/az/0.1/raw
 ```
 
 ## Parameters
@@ -17,6 +17,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/az/0.1/
   You can use a specific version of the `az` CLI by specifying the `az-image` param with the `mcr.microsoft.com/azure-cli` image tagged with the specific version of the CLI you would like to use (i.e. version 2.0.70 = `mcr.microsoft.com/azure-cli:2.0.70`). A full list of available version tags can be found under the [Full Tag Listing](https://hub.docker.com/_/microsoft-azure-cli) section of the `az` Docker Hub.
 
 * **ARGS**: The arguments to pass to `az` CLI. This parameter is required to run this task.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

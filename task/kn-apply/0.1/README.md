@@ -6,7 +6,7 @@ This task deploys a given image to a Knative Service using
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kn-apply/0.1/kn-apply.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/kn-apply/0.1/raw
 ```
 
 ## Parameters
@@ -22,6 +22,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kn
   The service will be created or updated if it exists.
 
 * **IMAGE**: Container image to run.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, `linux/arm64` and `linux/ppc64le` platforms.
 
 ## Usage
 

@@ -33,6 +33,15 @@ if [ "${BASH_VERSINFO:-0}" -lt 4 ];then
     exit 1
 fi
 
+# Default registry image value to use in this script
+REGISTRY_IMAGE="registry"
+
+# Do the tasks modifications if special PLATFORM value is specified. By default nothing happens.
+if [[ -n ${PLATFORM} ]] && [[ -f "$(dirname $0)/$(echo ${PLATFORM}| tr / -).sh" ]]; then
+        # Load script specific to platform. File name should follow the pattern "os-arch.sh", for instance "linux-s390x.sh".
+        source $(dirname $0)/$(echo ${PLATFORM}| tr / -).sh
+fi
+
 ## Commands
 
 function require_command() {
@@ -86,7 +95,7 @@ print(yaml.dump(data, default_flow_style=False))
 # Add an internal registry as sidecar to a task so we can upload it directly
 # from our tests withouth having to go to an external registry.
 function add_sidecar_registry() {
-    add_sidecars ${1} '{"image":"registry", "name": "registry"}'
+    add_sidecars ${1} "{'image':${REGISTRY_IMAGE}, 'name': 'registry'}"
 }
 
 # Run a secure registry as a sidecar to allow the tasks to push to this registry using the certs.
@@ -166,6 +175,10 @@ function test_yaml_can_install() {
         for ignore in ${TEST_YAML_IGNORES};do
             [[ ${ignore} == "${testname}" ]] && skipit=True
         done
+
+        # In case if PLATFORM env variable is specified, do the tests only for matching tasks
+        [[ -n ${PLATFORM} ]] && [[ $(grep "tekton.dev/platforms" ${runtest} 2>/dev/null) != *"${PLATFORM}"* ]]  && skipit=True
+
         [[ -n ${skipit} ]] && break
         echo "Checking ${testname}"
         ${KUBECTL_CMD} -n ${ns} apply -f <(sed "s/namespace:.*/namespace: task-ns/" "${runtest}")
@@ -224,7 +237,10 @@ function test_task_creation() {
 
         cat ${taskdir}/*.yaml | grep 'tekton.dev/deprecated: \"true\"' && skipit=True
 
-        [[ -n ${skipit} ]] && continue
+        # In case if PLATFORM env variable is specified, do the tests only for matching tasks
+	[[ -n ${PLATFORM} ]] && [[ $(grep "tekton.dev/platforms" ${taskdir}/*.yaml 2>/dev/null) != *"${PLATFORM}"* ]] && skipit=True
+
+	[[ -n ${skipit} ]] && continue
 
         # In case of rerun it's fine to ignore this error
         ${KUBECTL_CMD} create namespace ${tns} >/dev/null 2>/dev/null || :
@@ -233,7 +249,8 @@ function test_task_creation() {
         yaml=$(printf  ${taskdir}/*.yaml)
         started=$(date '+%Hh%M:%S')
         echo "${started} STARTING: ${testname}/${version} "
-        cp ${yaml} ${TMPF}
+        # dry-run this YAML to validate and also get formatting side-effects.
+        ${KUBECTL_CMD} -n ${tns} create -f ${yaml} --dry-run=client -o yaml >${TMPF}
         [[ -f ${taskdir}/tests/pre-apply-task-hook.sh ]] && source ${taskdir}/tests/pre-apply-task-hook.sh
         function_exists pre-apply-task-hook && pre-apply-task-hook
 
@@ -241,13 +258,21 @@ function test_task_creation() {
             # Create a configmap to make every file under fixture
             # available to the sidecar.
             ${KUBECTL_CMD} -n ${tns} create configmap fixtures --from-file=${taskdir}/tests/fixtures
-            cat <<EOF>>${TMPF}
+            # The task may already have a volumes section and in that case, we
+            # need to append fixtures volume.
+            if [[ -n $(grep "^[[:space:]]\{2,\}volumes:$" ${TMPF}) ]]; then
+              sed -i "s/^[[:space:]]\{2,\}volumes:$/  volumes:\\n  - name: fixtures\\n    configMap:\\n      name: fixtures/g" ${TMPF} 
+            else
+              cat <<EOF >>${TMPF}
   volumes:
   - name: fixtures
     configMap:
       name: fixtures
+EOF
+            fi
+            cat <<EOF >>${TMPF}
   sidecars:
-  - image: quay.io/chmouel/go-rest-api-test
+  - image: gcr.io/tekton-releases/dogfooding/go-rest-api-test:latest
     name: go-rest-api
     volumeMounts:
     - name: fixtures

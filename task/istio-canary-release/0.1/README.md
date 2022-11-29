@@ -13,13 +13,13 @@ For more details about canary release please refer [here](https://martinfowler.c
 1. For Application Manifests deployment we can use the existing `kubenetes-actions` task from the catalog
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kubernetes-actions/0.1/kubernetes-actions.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/kubernetes-actions/0.1/raw
 ```
 
 2. For Istio Services
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/istio-canary-release/0.1/istio-canary-release.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/istio-canary-release/0.1/raw
 ```
 
 ## Installing the ClusterRoleBinding
@@ -40,6 +40,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/is
 - **V2_WEIGHT**: The traffic weight to be diverted to new version v2
 
 **Note**: The above parameters are used in case we need to do traffic splitting using virtual service and for creating a `VirtualService` then use the `ConfigMap` as shown below.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 # Usage
 

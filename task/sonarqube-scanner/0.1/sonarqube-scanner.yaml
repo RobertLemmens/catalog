@@ -6,8 +6,11 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Security
     tekton.dev/tags: security
     tekton.dev/displayName: "sonarqube scanner"
+    tekton.dev/platforms: "linux/amd64"
+    tekton.dev/deprecated: "true"
 spec:
   description: >-
     The following task can be used to perform static analysis on the source code
@@ -52,7 +55,7 @@ spec:
 
         if [[ -f $(workspaces.sonar-settings.path)/sonar-project.properties ]]; then
           echo "using user provided sonar-project.properties file"
-          cp -R $(workspaces.sonar-settings.path)/sonar-project.properties $(workspaces.source-dir.path)/sonar-project.properties
+          cp -RL $(workspaces.sonar-settings.path)/sonar-project.properties $(workspaces.source-dir.path)/sonar-project.properties
         fi
 
         if [[ -f $(workspaces.source-dir.path)/sonar-project.properties ]]; then

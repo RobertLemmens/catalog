@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Code Quality
     tekton.dev/tags: linter
     tekton.dev/displayName: "Ruby linter"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This task can be used to perform lint check on Ruby files

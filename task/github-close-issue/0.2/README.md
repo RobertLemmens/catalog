@@ -7,7 +7,7 @@ issue.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/github-close-issue/0.2/github-close-issue.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/github-close-issue/0.2/raw
 ```
 
 ## Secrets
@@ -34,6 +34,9 @@ See GitHub's documentation on [Understanding scopes for OAuth Apps](https://deve
   contains the GitHub token. (_default:_ `github`).
 * **GITHUB_TOKEN_SECRET_KEY**: The key within the Kubernetes Secret that contains the GitHub token. (_default:_ `token`).
 
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

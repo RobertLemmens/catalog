@@ -6,8 +6,10 @@ metadata:
   labels:
     app.kubernetes.io/version: "0.1"
   annotations:
+    tekton.dev/categories: Image Build
     tekton.dev/pipelines.minVersion: "0.12.1"
     tekton.dev/tags: image-build
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     Buildah task builds source into a container image and

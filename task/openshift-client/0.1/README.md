@@ -7,7 +7,7 @@ Openshift-client runs commands against the cluster where the task run is being e
 
 ## Install the Task
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/openshift-client/0.1/openshift-client.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/openshift-client/0.1/raw
 ```
 
 ## Parameters
@@ -22,7 +22,7 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/op
 
 ### Inputs
 
-* **cluster**: a `cluster`-type `PipelineResource` specifying the target OpenShift cluster to execute the commands against it
+* **source**: a `git`-type `PipelineResource` which holds the files that needs to be applied on the cluster. (_Optional_)
 
 ## ServiceAccount
 
@@ -32,6 +32,10 @@ You can do the former via `oc` and running the following command, replacing `<na
 ```
 oc policy add-role-to-user edit -z default -n <namespace>
 ```
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

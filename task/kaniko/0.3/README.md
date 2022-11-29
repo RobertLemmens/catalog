@@ -22,7 +22,7 @@ makes it a perfect tool to be part of Tekton.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kaniko/0.3/kaniko.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/kaniko/0.3/raw
 ```
 
 ## Parameters
@@ -51,6 +51,10 @@ the docker `config.json`.
 
 When using a workspace, the workspace shall be bound to a secret that embeds the
 configuration file in a key called `config.json`.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.2"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Git
     tekton.dev/tags: git
     tekton.dev/displayName: "git clone"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     These Tasks are Git tasks to work with repositories used by other tasks

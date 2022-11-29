@@ -5,7 +5,7 @@ This is a generic task used to perform kubernetes actions such as `kubectl get d
 ## Install the task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kubernetes-actions/0.2/kubernetes-actions.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/kubernetes-actions/0.2/raw
 ```
 
 ## Inputs
@@ -25,6 +25,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ku
 
 - **output-result**: If you want to emit some result which can be used in decision making. One such case is when using [whenExpressions](https://github.com/tektoncd/pipeline/blob/main/docs/pipelines.md#guard-task-execution-using-whenexpressions).
 
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
+
 ## Usage
 
 In case no manifests are mounted
@@ -36,9 +40,9 @@ metadata:
   name: kubectl-run
 spec:
   taskRef:
-    name: kubectl-actions
+    name: kubernetes-actions
   params:
-    - name: SCRIPT
+    - name: script
       value: |
         kubectl get pods 
         echo "-----------"
@@ -54,7 +58,7 @@ metadata:
   name: kubectl-run
 spec:
   taskRef:
-    name: kubectl-actions
+    name: kubernetes-actions
   params:
     - name: script
       value: |
@@ -79,7 +83,7 @@ Running `kubectl` commands on other cluster
      name: kubectl-run
    spec:
      taskRef:
-       name: kubectl-actions
+       name: kubernetes-actions
      workspaces:
        - name: kubeconfig-dir
          configMap:

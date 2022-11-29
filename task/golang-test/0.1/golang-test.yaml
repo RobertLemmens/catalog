@@ -6,8 +6,10 @@ metadata:
     app.kubernetes.io/version: "0.1"
   annotations:
     tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/categories: Testing
     tekton.dev/tags: test
     tekton.dev/displayName: "golang test"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     This Task is Golang task to test Go projects.

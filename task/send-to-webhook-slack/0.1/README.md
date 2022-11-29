@@ -11,7 +11,7 @@ Follow instructions [here](https://api.slack.com/messaging/webhooks) to generate
 ## Install the Task and create a secret
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/send-to-webhook-slack/0.1/send-to-webhook-slack.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/send-to-webhook-slack/0.1/raw
 ```
 
 Create a secret that has the generated webhook URL
@@ -40,6 +40,10 @@ kubectl apply -f webhook-secret.yaml
 * **bot-name**: The name of the bot to use. Defaults to `Tekton Bot`.
 
 * **icon-emoji**: The emoji to use for the bot. For example you could import a tekton emoji and use `:tekton:` over here.
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x` and `linux/ppc64le` platforms.
 
 ## Usage
 

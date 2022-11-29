@@ -6,9 +6,11 @@ metadata:
   labels:
     app.kubernetes.io/version: "0.1"
   annotations:
+    tekton.dev/categories: Deployment
     tekton.dev/pipelines.minVersion: "0.16.0"
     tekton.dev/tags: "orka, macstadium, deploy, build"
     tekton.dev/displayName: "MacStadium Orka Deploy"
+    tekton.dev/platforms: "linux/amd64"
 spec:
   description: >-
     With this set of Tasks, you can use your Orka environment
@@ -45,6 +47,11 @@ spec:
 
         Set to false if you intend to clean up VMs after use manually.
       default: "true"
+    - name: orka-image
+      type: string
+      description: |
+        The name of the docker image which runs the task step.
+      default: docker.io/macstadium/orka-tekton-runner:2020-10-23-a93757dc-0.1@sha256:e8ed3370dcb91cdb8bcd4e9a7e9f6652879d80acdab9644cda69a98cd8c93339
     - name: ssh-key
       type: string
       description: |
@@ -99,7 +106,7 @@ spec:
     workingDir: /workspace
   steps:
     - name: copy-script
-      image: docker.io/macstadium/orka-tekton-runner:2020-10-23-a93757dc-0.1@sha256:e8ed3370dcb91cdb8bcd4e9a7e9f6652879d80acdab9644cda69a98cd8c93339
+      image: $(params.orka-image)
       script: |
         #!/bin/sh
         SCRIPT=$(mktemp)
@@ -109,7 +116,7 @@ spec:
         EOF
         copy-script $SCRIPT
     - name: build
-      image: docker.io/macstadium/orka-tekton-runner:2020-10-23-a93757dc-0.1@sha256:e8ed3370dcb91cdb8bcd4e9a7e9f6652879d80acdab9644cda69a98cd8c93339
+      image: $(params.orka-image)
       env:
         - name: ORKA_API
           valueFrom:

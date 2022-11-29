@@ -5,7 +5,7 @@ This task performs operations on Google Cloud Platform resources using `gcloud`.
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gcloud/0.1/gcloud.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/gcloud/0.1/raw
 ```
 
 ## Parameters
@@ -22,6 +22,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gc
   (e.g., `google/cloud-sdk`, or `google/cloud-sdk:263.0.0`).
 
 * **ARGS**: The arguments to pass to `gcloud` CLI.  _default_: `["help"]`
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 
@@ -141,6 +145,6 @@ spec:
     - --zone=ZONE
 ```
 
-Run it with `kubect create -f create-instance.yaml`
+Run it with `kubectl create -f create-instance.yaml`
 
 When this runs, it will create a new GCE VM instance in the specified zone.

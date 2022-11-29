@@ -5,7 +5,7 @@ The following task is used to replace a specific field in a yaml in the workspac
 ## Installing the Task
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/yq/0.1/yq.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/yq/0.1/raw
 ```
 
 ## Parameters
@@ -17,6 +17,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/yq
 ## Workspaces
 
 - **source** : The workspace containing files on which we want to do the replacement on a single file.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

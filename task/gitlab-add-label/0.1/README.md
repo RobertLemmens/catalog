@@ -34,7 +34,7 @@ stringData:
 ### Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gitlab-add-label/0.1/gitlab-add-label.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/gitlab-add-label/0.1/raw
 ```
 
 ### Parameters
@@ -51,6 +51,9 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/gi
 
 * `Secret` to provide Gitlab `access token` to authenticate to the Gitlab.
 
+### Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ### Usage
 

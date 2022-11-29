@@ -7,7 +7,7 @@ Jib works with [Gradle](https://github.com/GoogleContainerTools/jib/tree/master/
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/jib-gradle/0.1/jib-gradle.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/jib-gradle/0.1/raw
 ```
 
 
@@ -25,6 +25,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/ji
 ### Outputs
 
 * **image**: The Docker image name to apply to the newly built image.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 

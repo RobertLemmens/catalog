@@ -5,12 +5,20 @@ Given a base version, this task generates a unique build id by appending the bas
 ## Install the Task
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/generate-build-id/0.1/generate-build-id.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/generate-build-id/0.1/raw
 ```
 
 ## Parameters
 
 * **base-version**: The base version to use in the generated build id.  _default_: `["1.0"]`
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, `linux/arm64` and `linux/ppc64le` platforms.
+
+## Platforms
+
+The Task can be run on `linux/amd64` platform.
 
 ## Usage
 
@@ -74,7 +82,7 @@ spec:
           value: "$(tasks.get-build-id.results.build-id)"
 ```
 As can be seen from the example the first task generates the build id while the second task consumes the generated build id.
-In the task to generate the build id, we override the default value of `base-version` using the value of the `service-version` pipeline parameter that has currentluy been set to a default value of 3.1.1.
+In the task to generate the build id, we override the default value of `base-version` using the value of the `service-version` pipeline parameter that has currently been set to a default value of 3.1.1.
 In the task to build the service api, we then pass the generated build from the first task as its input param called `build-id`.
 For the sake of completeness, here is what the task to build the service api (`build-service-api.yaml`) looks like:
 

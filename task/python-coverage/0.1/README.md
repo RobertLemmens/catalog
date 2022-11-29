@@ -13,7 +13,7 @@ The task provides code coverage based on [coverage](https://coverage.readthedocs
 ### Install pytest
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/python-coverage/0.1/python-coverage.yaml
+kubectl apply -f https://api.hub.tekton.dev/v1/resource/tekton/task/python-coverage/0.1/raw
 ```
 
 ## Parameters
@@ -22,6 +22,10 @@ kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/py
 - **ARGS**: The additional arguments to be used with pytest
 - **SOURCE_PATH**: The path to the source code (_default_: `.`)
 - **REQUIREMENTS_FILE**: The name of the requirements file inside the source location (_default_: `requirements.txt`)
+
+## Platforms
+
+The Task can be run on `linux/amd64`, `linux/s390x`, and `linux/ppc64le` platforms.
 
 ## Usage
 
